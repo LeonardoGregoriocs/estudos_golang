@@ -5,10 +5,9 @@ import (
 )
 
 type ContaCorrente struct {
-	Titular       clientes.Titular
-	NumeroAgencia int
-	NumeroConta   int
-	saldo         float64
+	Titular                    clientes.Titular
+	NumeroAgencia, NumemoConta int
+	saldo                      float64
 }
 
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
@@ -19,7 +18,6 @@ func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 	} else {
 		return "Saldo insuficiente!"
 	}
-
 }
 
 func (c *ContaCorrente) Depositar(valordoDeposito float64) (string, float64) {
@@ -29,7 +27,6 @@ func (c *ContaCorrente) Depositar(valordoDeposito float64) (string, float64) {
 	} else {
 		return "Valor do deposito menor que zero!", c.saldo
 	}
-
 }
 
 func (c *ContaCorrente) Transferir(contaDestino *ContaCorrente, valorDaTransferencia float64) bool {
