@@ -4,7 +4,7 @@ import (
 	"estudos_golang/bank/clientes"
 )
 
-type ContaPoupanca2 struct {
+type ContaPoupanca struct {
 	Titular       clientes.Titular
 	NumeroAgencia int
 	NumemoConta   int
@@ -12,7 +12,7 @@ type ContaPoupanca2 struct {
 	saldo         float64
 }
 
-func (c *ContaPoupanca2) Sacar(valorDoSaque float64) string {
+func (c *ContaPoupanca) Sacar(valorDoSaque float64) string {
 	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo
 	if podeSacar {
 		c.saldo -= valorDoSaque
@@ -22,7 +22,7 @@ func (c *ContaPoupanca2) Sacar(valorDoSaque float64) string {
 	}
 }
 
-func (c *ContaPoupanca2) Depositar(valordoDeposito float64) (string, float64) {
+func (c *ContaPoupanca) Depositar(valordoDeposito float64) (string, float64) {
 	if valordoDeposito > 0 {
 		c.saldo += valordoDeposito
 		return "Deposito feito com sucesso!", c.saldo
@@ -31,6 +31,6 @@ func (c *ContaPoupanca2) Depositar(valordoDeposito float64) (string, float64) {
 	}
 }
 
-func (c *ContaPoupanca2) ObterSaldo() float64 {
+func (c *ContaPoupanca) ObterSaldo() float64 {
 	return c.saldo
 }
